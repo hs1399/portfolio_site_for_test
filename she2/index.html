@@ -1,0 +1,35 @@
+<!doctype html>
+<html ng-app>
+    <head>
+        <meta charset="utf-8">
+        <title> Shu He</title>
+        <style>.dim { opacity: 0.1;} </style>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body ng-controller="SheTwoCtrl">   
+        <ul id="menu">
+           <li id="home"><a href="index.html">Home</a></li>
+           <li id="aobut"><a href="about.html">About</a></li>
+        </ul>
+        <ul ng-init="select('all')" ng-mouseout="select('all')" id="sub_menu">
+            <li 
+                ng-mouseover="select(property.name)"
+                ng-repeat="property in properties">
+                {{property.text}}
+            </li>
+        </ul>
+
+        <!--
+        <p id="currentItem">{{curProperty || 'nothing'}}</p>
+        -->
+
+        <img class="thumbnail" ng-mouseover="updateImgName(image)" ng-class="spark(image.properties)" ng-repeat="image in images" ng-src="{{image.src}}">
+
+        <!--<p id="nameofcurrentImage">{{currentImage || 'wat'}}</p>-->
+        <!-- if you dont' want the default "wat" on the page, change the line above like this:-->
+        <p id="nameofcurrentImage">{{currentImage}}</p>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular.min.js"></script>
+        <script src="main.js"></script>
+    </body>
+</html>
